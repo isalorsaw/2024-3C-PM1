@@ -7,12 +7,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Conexion {
-    protected static String db="colinsoft";
+    /*protected static String db="movil1";
     protected static String ip="192.168.1.10";
     protected static String port="3306";
     protected static String username="ilsw";
-    protected static String password="olimpia";
-    public static Connection CONN()
+    protected static String password="olimpia";*/
+
+    protected static String db="sql5735262";
+    protected static String ip="sql5.freemysqlhosting.net";
+    protected static String port="3306";
+    protected static String username="sql5735262";
+    protected static String password="zxmx3fjS2D";
+    public static Connection getConexion()
     {
         Connection conn=null;
         try
