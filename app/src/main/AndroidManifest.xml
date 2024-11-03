@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -15,8 +16,22 @@
         android:theme="@style/Theme.Movil1"
         tools:targetApi="34">
         <activity
+            android:name=".activity_accesos"
+            android:exported="false" />
+        <activity
+            android:name=".usuario"
+            android:exported="false" />
+        <activity
+            android:name=".User_Activity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name=".PantallaPral"
             android:exported="false" />
+        <activity
+            android:name=".Product_Activity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -6,23 +6,46 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BDManager
 {
     static Conexion conn;
+    public static String hoy()
+    {
+        return getData(1,"select now()");
+    }
     public static void insertar(String sql)
     {
         try
         {
             Connection con=conn.getConexion();
             Statement s1=con.createStatement();
-            s1.executeQuery(sql);
+            s1.execute(sql);
             con.close();
         }catch(Exception exp)
         {
             //Insertar en un Archivo los Errores.
             Log.e("Error", exp.getMessage());
         }
+    }
+    public static String insertarMsg(String sql)
+    {
+        try
+        {
+            Connection con=conn.getConexion();
+            Statement s1=con.createStatement();
+            Log.e("SQL", sql);
+            s1.execute(sql);
+            con.close();
+        }catch(Exception exp)
+        {
+            //Insertar en un Archivo los Errores.
+            Log.e("Error", exp.getMessage());
+            return exp.getMessage();
+        }
+        return "Success";
     }
     public static String getData(int campo,String sql)
     {
@@ -68,5 +91,27 @@ public class BDManager
         }
         catch(Exception exp){}
         return "";
+    }
+    public static List<String> getList(String sql)
+    {
+        List<String> list=new ArrayList<>();
+
+        try
+        {
+            Connection con=conn.getConexion();
+            Statement s1=con.createStatement();
+            ResultSet rs=s1.executeQuery(sql);
+            while(rs.next())
+            {
+                list.add(rs.getString(1));
+            }
+            rs.close();
+            con.close();
+        }catch(Exception exp)
+        {
+            //Insertar en un Archivo los Errores.
+            Log.e("Error", exp.getMessage());
+        }
+        return list;
     }
 }

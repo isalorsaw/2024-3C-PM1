@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
             txtstatus.setText(con.ConnError());
             btnentrar.setVisibility(View.INVISIBLE);
         }
-
         btnentrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,18 +44,21 @@ public class MainActivity extends AppCompatActivity {
                 else if(txtclave.getText().toString().trim().length()<=0) Toast.makeText(MainActivity.this,"Ingrese la Clave",Toast.LENGTH_LONG).show();
                 else
                 {
-                    String sql="select count(*) from tbl_user where usuario_user='"+Utils.preparar(txtuser.getText().toString())+
-                            "' and usuario_clave='"+Utils.preparar(txtclave.getText().toString())+"'";
+                    String sql="select count(*) from tbl_user where user_nombre='"+Utils.preparar(txtuser.getText().toString())+
+                            "' and user_clave='"+Utils.preparar(txtclave.getText().toString())+"'";
                     //Utils.mostrar(MainActivity.this,sql);
                     String info=BDManager.getData(1,sql);
                     if(Utils.convertInt(info)>0)
                     {
-
                         Utils.usuario=txtuser.getText().toString();
-                        BDManager.insertar("insert into tbl_bitacora values(0,'"+Utils.usuario+" entro al sistema')");
+                        String iduser=BDManager.getData(1,"select user_id from tbl_user where user_nombre='"+
+                                Utils.preparar(txtuser.getText().toString())+"'");
+                        Utils.iduser=Integer.parseInt(iduser);
+                        Bitacora bit=new Bitacora();
+                        BDManager.insertarMsg(bit.getSQL(Utils.usuario+" entro al sistema",BDManager.hoy()));
+
                         Intent pral=new Intent(MainActivity.this,PantallaPral.class);
                         MainActivity.this.startActivity(pral);
-
                     }
                     else
                     {

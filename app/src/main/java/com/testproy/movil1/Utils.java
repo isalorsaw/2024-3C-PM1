@@ -6,6 +6,7 @@ import android.widget.Toast;
 public class Utils
 {
     static String usuario="";
+    static int iduser=0;
     public static String preparar(String inputString)
     {
         final String[] metaCharacters = {"\\","^","$","{","}","[","]","(",")",".","*","+","?","|","<",">","-","&","%","\\;"};

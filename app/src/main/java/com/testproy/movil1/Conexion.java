@@ -13,11 +13,11 @@ public class Conexion {
     protected static String username="ilsw";
     protected static String password="olimpia";*/
 
-    protected static String db="sql5735262";
-    protected static String ip="sql5.freemysqlhosting.net";
+    protected static String db="ilsw_movil1";
+    protected static String ip="mysql.us.cloudlogin.co";
     protected static String port="3306";
-    protected static String username="sql5735262";
-    protected static String password="zxmx3fjS2D";
+    protected static String username="ilsw_movil1";
+    protected static String password="movil1uth";
     public static Connection getConexion()
     {
         Connection conn=null;

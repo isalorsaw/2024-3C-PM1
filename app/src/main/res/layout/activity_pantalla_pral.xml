@@ -35,7 +35,7 @@
         tools:ignore="MissingConstraints">
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/btnmuser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
@@ -44,6 +44,18 @@
             android:layout_margin="5sp"
             android:background="#ffffff"
             android:text="Usuarios"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnmacceso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="5sp"
+            android:background="#ffffff"
+            android:text="Accesos"
             android:textSize="18sp" />
 
         <Button
